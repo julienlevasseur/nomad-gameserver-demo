@@ -15,7 +15,7 @@ job "api" {
 			}
 
 			env {
-				NOMAD_ADDR = "http://host.docker.internal:4646"
+				NOMAD_ADDR       = "http://host.docker.internal:4646"
 				CONSUL_HTTP_ADDR = "http://host.docker.internal:8500"
 			}
 
