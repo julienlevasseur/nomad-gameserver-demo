@@ -11,7 +11,7 @@ job "api" {
 		  driver = "docker"
 		
 		    config {
-				image = "nomad-gameserver-demo:develop"
+				image = "julienlevasseur/nomad-gameserver-demo:develop"
 			}
 
 			env {
