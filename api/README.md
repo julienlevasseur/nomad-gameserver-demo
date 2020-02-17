@@ -1,6 +1,29 @@
 # API
 
+[Table of Contents](#table-of-contents)
+
+[Jobs](#jobs)
+
+* [List](#list)
+
+* [Register](#register)
+
+* [Deregister](#deregister)
+
+* [Info](#info)
+
+* [Dispatch](#dispatch)
+
+[Services](#services)
+
+* [List](#list)
+
+* [Info](#info)
+
+
 ## Jobs
+
+### List
 
 Returns the list of registered jobs.
 
@@ -77,6 +100,8 @@ Returns the list of registered jobs.
 
 ---
 
+### Register
+
 Register a job.
 
 * **URL**
@@ -122,6 +147,8 @@ Register a job.
 
 ---
 
+### Deregister
+
 Deregister a job.
 
 * **URL**
@@ -155,6 +182,8 @@ Deregister a job.
     ```
 
 ---
+
+### Info
 
 Get job details.
 
@@ -381,7 +410,9 @@ Get job details.
     }
     ```
 
-    ---
+---
+
+### Dispatch
 
 Dispatch a parameterized job.
 
@@ -429,6 +460,8 @@ Dispatch a parameterized job.
     ```
 
 ## Services
+
+### List
 
 Returns the list of registered services.
 
@@ -483,6 +516,8 @@ Returns the list of registered services.
     ```
 
 ---
+
+### Info
 
 Get service details.
 
