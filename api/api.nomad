@@ -12,6 +12,15 @@ job "api" {
 		
 		    config {
 				image = "julienlevasseur/nomad-gameserver-demo:develop"
+
+//				logging {
+//					type = "gelf"
+//
+//					config {
+//						gelf-address = "tcp://host.docker.internal:12201"
+//						tag = "api"
+//					}
+//				}
 			}
 
 			env {
@@ -31,12 +40,17 @@ job "api" {
         	}
 
 			service {
-				name = "${JOB}-${NOMAD_ALLOC_ID}"
-        		tags = ["api", "docker", "${NOMAD_ALLOC_NAME}"]
+				name = "${JOB}"
+        		tags = [
+					"api",
+					"docker",
+					"${NOMAD_JOB_NAME}",
+					"traefik.enable=true"
+				]
         		port = "api"
 
 				check {
-              		name     = "${NOMAD_JOB_NAME}:${NOMAD_ALLOC_INDEX}-tcp"
+              		name     = "${NOMAD_JOB_NAME}-tcp"
             		type     = "tcp"
             		interval = "10s"
             		timeout  = "2s"

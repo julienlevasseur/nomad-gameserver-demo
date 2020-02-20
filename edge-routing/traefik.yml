@@ -1,0 +1,23 @@
+## traefik.yml
+
+providers:
+#  docker:
+#    defaultRule: "Host(`{{ trimPrefix `/` .Name }}.docker.localhost`)"
+  consulCatalog:
+    refreshInterval: "5s"
+    endpoint:
+      address: "http://host.docker.internal:8500"
+
+tcp:
+  routers:
+    TCPRouter:
+      service: "minecraft"
+
+api:
+  insecure: true
+
+entryPoints:
+  HTTP:
+    address: ":80"
+  TCP:
+   address: ":22222"
