@@ -29,7 +29,7 @@ Returns the list of registered jobs.
 
 * **URL**
 
-    /jobs/
+    /v1/jobs/
 
 * **Method**
 
@@ -46,7 +46,7 @@ Returns the list of registered jobs.
 * **Sample Request**
 
     ```bash
-    curl -X GET http://127.0.0.1:7070/jobs/
+    curl -X GET http://127.0.0.1:7070/v1/jobs/
     ```
 
 * **Sample Response**
@@ -106,7 +106,7 @@ Register a job.
 
 * **URL**
 
-    /jobs/
+    /v1/jobs/
 
 * **Method**
 
@@ -125,7 +125,7 @@ Register a job.
 * **Sample Request**
 
     ```bash
-    curl -X POST http://127.0.0.1:7070/jobs/ --data "@job.nomad"
+    curl -X POST http://127.0.0.1:7070/v1/jobs/ --data "@job.nomad"
     ```
 
 * **Sample Response**
@@ -153,7 +153,7 @@ Deregister a job.
 
 * **URL**
 
-    /jobs/
+    /v1/jobs/
 
 * **Method**
 
@@ -172,7 +172,7 @@ Deregister a job.
 * **Sample Request**
 
     ```bash
-    curl -X DELETE http://127.0.0.1:7070/jobs/ --data '{"JobID": "job_id"}'
+    curl -X DELETE http://127.0.0.1:7070/v1/jobs/ --data '{"JobID": "job_id"}'
     ```
 
 * **Sample Response**
@@ -189,7 +189,7 @@ Get job details.
 
 * **URL**
 
-    /jobs/{id}
+    /v1/jobs/{id}
 
 * **Method**
 
@@ -208,7 +208,7 @@ Get job details.
 * **Sample Request**
 
     ```bash
-    curl -X GET http://127.0.0.1:7070/jobs/{job_id}
+    curl -X GET http://127.0.0.1:7070/v1/jobs/{job_id}
     ```
 
 * **Sample Response**
@@ -418,7 +418,7 @@ Dispatch a parameterized job.
 
 * **URL**
 
-    /jobs/{id}/dispatch
+    /v1/jobs/{id}/dispatch
 
 * **Method**
 
@@ -441,7 +441,7 @@ Dispatch a parameterized job.
 * **Sample Request**
 
     ```bash
-    curl -X POST http://127.0.0.1:7070/jobs/{job_id}/dispatch -d '{}'
+    curl -X POST http://127.0.0.1:7070/v1/jobs/{job_id}/dispatch -d '{}'
     ```
 
 * **Sample Response**
@@ -467,7 +467,7 @@ Returns the list of registered services.
 
 * **URL**
 
-    /services/
+    /v1/services/
 
 * **Method**
 
@@ -484,7 +484,7 @@ Returns the list of registered services.
 * **Sample Request**
 
     ```bash
-    curl -X GET http://127.0.0.1:7070/services/
+    curl -X GET http://127.0.0.1:7070/v1/services/
     ```
 
 * **Sample Response**
@@ -523,7 +523,7 @@ Get service details.
 
 * **URL**
 
-    /services/{ServiceID}
+    /v1/services/{ServiceID}
 
 * **Method**
 
@@ -542,7 +542,7 @@ Get service details.
 * **Sample Request**
 
     ```bash
-    curl -X GET http://127.0.0.1:7070/services/{service_id}
+    curl -X GET http://127.0.0.1:7070/v1/services/{service_id}
     ```
 
 * **Sample Response**

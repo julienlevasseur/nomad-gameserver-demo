@@ -11,7 +11,7 @@ job "api" {
 		  driver = "docker"
 		
 		    config {
-				image = "julienlevasseur/nomad-gameserver-demo:develop"
+				image = "julienlevasseur/nomad-gameserver-demo:test"
 
 //				logging {
 //					type = "gelf"
