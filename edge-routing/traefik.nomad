@@ -14,12 +14,17 @@ job "traefik" {
 			    image = "traefik"
 
 			    cpu_hard_limit = true
-
-                volumes = [
-                    "/Users/julien.levasseur/go/src/github.com/julienlevasseur/nomad-gameserver-demo/edge-routing/:/etc/traefik/",
-                    "/var/run/docker.sock:/var/run/docker.sock"
-                ]
 		    }
+
+            env {
+				TRAEFIK_API_INSECURE = true
+				TRAEFIK_PROVIDERS_CONSULCATALOG_REFRESHINTERVAL = "5s"
+				TRAEFIK_PROVIDERS_CONSULCATALOG_ENDPOINT_ADDRESS = "http://host.docker.internal:8500"
+				TRAEFIK_ENTRYPOINTS_HTTP = true
+				TRAEFIK_ENTRYPOINTS_HTTP_ADDRESS = ":80"
+				TRAEFIK_ENTRYPOINTS_TCP = true
+				//TRAEFIK_ENTRYPOINTS_TCP_ADDRESS = ":${NOMAD_PORT_minecraft-server_minecraft}"
+			}
 
 		    resources {
 		    	cpu = 1000

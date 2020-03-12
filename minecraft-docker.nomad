@@ -12,7 +12,7 @@ job "minecraft" {
 		driver = "docker"
 	
 		config {
-			image = "julienlevasseur/minecraft-server:1.0-alpine"
+			image = "julienlevasseur/minecraft-server:latest"
 
 			cpu_hard_limit = true
 		}
@@ -22,8 +22,8 @@ job "minecraft" {
 		}
 
 		resources {
-			cpu = 18000
-			memory = 1280
+			cpu = 34000
+			memory = 2048
 			network {
 				mbits = 200
 				port "minecraft" {}
@@ -35,11 +35,11 @@ job "minecraft" {
             tags = [
 				"minecraft",
 				"docker",
+				"${NOMAD_JOB_NAME}",
 				"${NOMAD_ALLOC_NAME}",
 				"traefik.enable=true",
-				"traefik.tcp.routers.TCP.entrypoints=TCP",
 				"traefik.tcp.routers.TCP.service=minecraft-${NOMAD_ALLOC_ID}",
-				"traefik.tcp.routers.TCP.rule=HostSNI(`service.consul`)"
+				"traefik.tcp.services.minecraft-${NOMAD_ALLOC_ID}.loadbalancer.server.port=${NOMAD_PORT_minecraft}"
 			]
             port = "minecraft"
 

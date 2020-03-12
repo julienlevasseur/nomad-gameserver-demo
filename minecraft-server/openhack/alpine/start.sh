@@ -4,8 +4,6 @@ set -e
 sed -i "/^minecraft/s/:1000:1000:/:${UID}:${GID}:/g" /etc/passwd
 sed -i "/^minecraft/s/:1000:/:${GID}:/g" /etc/group
 
-ls -la
-
 if [ "$SKIP_OWNERSHIP_FIX" != "TRUE" ]; then
   fix_ownership() {
     dir=$1
