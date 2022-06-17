@@ -15,7 +15,9 @@ import (
 
 // gameServer map the game server name with its job description file
 var gameServer = map[string]string{
-	"minecraft": "../minecraft-docker.nomad",
+	"minecraft":      "../minecraft-docker.nomad",
+	"minecraft-bin":  "../minecraft-binary.nomad",
+	"minecraft-java": "../minecraft-java-server.nomad",
 }
 
 // RootCmd root command
@@ -161,7 +163,7 @@ func requestGameServer(jobName string) {
 		panic(err)
 	}
 
-	// Retrieving all Noamd jobs name:
+	// Retrieving all Nomad jobs name:
 	var jobNames []string
 	for _, j := range jobs {
 		jobNames = append(jobNames, j.Name)
