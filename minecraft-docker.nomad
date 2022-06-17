@@ -22,7 +22,7 @@ job "minecraft" {
 		}
 
 		resources {
-			cpu = 34000
+			cpu = 8000
 			memory = 2048
 			network {
 				mbits = 200
