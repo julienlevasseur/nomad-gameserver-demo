@@ -8,24 +8,10 @@ job "api" {
 		count = 1
 
 		task "api" {
-		  driver = "docker"
+		  driver = "raw_exec"
 		
 		    config {
-				image = "julienlevasseur/nomad-gameserver-demo:test"
-
-//				logging {
-//					type = "gelf"
-//
-//					config {
-//						gelf-address = "tcp://host.docker.internal:12201"
-//						tag = "api"
-//					}
-//				}
-			}
-
-			env {
-				NOMAD_ADDR       = "http://host.docker.internal:4646"
-				CONSUL_HTTP_ADDR = "http://host.docker.internal:8500"
+				command = "/usr/local/bin/api"
 			}
 
 		    resources {
