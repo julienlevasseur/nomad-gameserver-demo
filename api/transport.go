@@ -36,43 +36,43 @@ func MakeHTTPHandler(s Service, logger log.Logger) http.Handler {
 		httptransport.ServerErrorEncoder(encodeError),
 	}
 
-	r.Methods("POST").Path("/jobs/").Handler(httptransport.NewServer(
+	r.Methods("POST").Path("/v1/jobs/").Handler(httptransport.NewServer(
 		e.PostJobEndpoint,
 		decodePostJobRequest,
 		encodeResponse,
 		options...,
 	))
-	r.Methods("GET").Path("/jobs/").Handler(httptransport.NewServer(
+	r.Methods("GET").Path("/v1/jobs/").Handler(httptransport.NewServer(
 		e.GetJobsEndpoint,
 		decodeGetJobsRequest,
 		encodeResponse,
 		options...,
 	))
-	r.Methods("DELETE").Path("/jobs/").Handler(httptransport.NewServer(
+	r.Methods("DELETE").Path("/v1/jobs/").Handler(httptransport.NewServer(
 		e.DeleteJobEndpoint,
 		decodeDeleteJobRequest,
 		encodeResponse,
 		options...,
 	))
-	r.Methods("GET").Path("/jobs/{id}").Handler(httptransport.NewServer(
+	r.Methods("GET").Path("/v1/jobs/{id}").Handler(httptransport.NewServer(
 		e.GetJobEndpoint,
 		decodeGetJobRequest,
 		encodeResponse,
 		options...,
 	))
-	r.Methods("POST").Path("/jobs/{id}/dispatch").Handler(httptransport.NewServer(
+	r.Methods("POST").Path("/v1/jobs/{id}/dispatch").Handler(httptransport.NewServer(
 		e.PostJobDispatchEndpoint,
 		decodePostJobDispatchRequest,
 		encodeResponse,
 		options...,
 	))
-	r.Methods("GET").Path("/services/").Handler(httptransport.NewServer(
+	r.Methods("GET").Path("/v1/services/").Handler(httptransport.NewServer(
 		e.GetServicesEndpoint,
 		decodeGetServicesRequest,
 		encodeResponse,
 		options...,
 	))
-	r.Methods("GET").Path("/services/{id}").Handler(httptransport.NewServer(
+	r.Methods("GET").Path("/v1/services/{id}").Handler(httptransport.NewServer(
 		e.GetServiceEndpoint,
 		decodeGetServiceRequest,
 		encodeResponse,
