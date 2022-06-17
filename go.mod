@@ -22,4 +22,5 @@ require (
 	github.com/spf13/cobra v0.0.6
 	github.com/ugorji/go v1.1.7 // indirect
 	golang.org/x/crypto v0.0.0-20200210222208-86ce3cb69678 // indirect
+	golang.org/x/sys v0.0.0-20220614162138-6c1b26c55098 // indirect
 )
