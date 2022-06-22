@@ -56,3 +56,15 @@ Here's a quick video demonstrating the thing in action:
 Quick overview of the architecture:
 
 ![img/architecture_overview.png](img/architecture_overview.png)
+
+## Possible Improvements
+
+As mentioned, this is a quick proof of concept that has been put together on free time through few hours and would require some improvements.
+Some of thos improvements would be:
+
+- Create a nomad job for ElasticSearch and Grafana so everything is hosted on Nomad (it's actually run with docker-compose)
+- Add tests (especially for the matchmacker and the api)
+- Standardize the minecraft server nomad jobs (they're all here to demonstrate how to schedule different kind of jobs with Nomad, but the different nomad jobs havenot the same config (for instance: the minecraft-binary does not self register to Traefik))
+- Global deployment (pipeline and tooling) could be improved to demnostrate how to properly (simply) deploy such services.
+...
+

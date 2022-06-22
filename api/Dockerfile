@@ -1,11 +1,12 @@
-FROM golang:1.13.8-alpine
-MAINTAINER Julien Levasseur <contact@julienlevasseur.ca>
+FROM golang:1.18-alpine
+LABEL maintainer="julien.levasseur@free.fr"
 
 COPY $PWD /go/src/github.com/julienlevasseur/nomad-gameserver-demo/api
-WORKDIR /go/src/github.com/julienlevasseur/nomad-gameserver-demo/api
+WORKDIR /go/src/github.com/julienlevasseur/nomad-gameserver-demo/api/api
 RUN apk update && \
-apk add git sshd && \
-go get && \
+apk add git && \
+pwd && ls -la && \
+go install && \
 go build && \
 apk del git
 
