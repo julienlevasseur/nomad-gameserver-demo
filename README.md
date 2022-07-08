@@ -1,13 +1,13 @@
 # Demo: Nomad as a game server scheduler
 
 This repository hold a proof of concept of a game server scheduler based on Hashicorp Nomad.
-It has been crafted on the side in few days to demonstrate the feasability the advantages of leveraging existing Open Source technology and tools to focus on what brings value to the business rather than designing and developping every bit of the software internally.
+It has been crafted on the side in few days to demonstrate the feasability and the advantages of leveraging existing Open Source technology and tools to focus on what brings value to the business rather than designing and developping every bit of the software internally.
 
-It has been demontrated to the target audience as a "Lunch & Learn" demo and does not aim to be used a complete reference point or any kind of tutorial/documentation.
+It has been demonstrated to the target audience as a "Lunch & Learn" demo and does not aim to be used as a complete reference point or any kind of tutorial/documentation.
 
 ## Architecture
 
-This POC orchestrate a minecraft server (because it was easily accessible) based on request from a matchmaker. The game server accessibility is then automated via service mesh features.
+This POC orchestrate a minecraft server (because it was easily accessible) based on requests from a matchmaker. The game server accessibility is then automated via service mesh features.
 
 ### Matchmaker
 
@@ -18,7 +18,7 @@ From a real use case perspective, it could be seen as: the code that request the
 ### API
 
 The API is the in-house software that links the games with the platform.
-In this example, it is built arround the Service-Oriented Architecture because this how was built the APIs where this POC was conduct.
+In this example, it is build arround the Service-Oriented Architecture because this is how was built the APIs where this POC was conduct.
 
 When the matchmaker request a gameserver, the API will register the gameserver job description to Nomad (as a [parametereized job](https://www.nomadproject.io/docs/job-specification/parameterized)) and [dispatch](https://www.nomadproject.io/docs/commands/job/dispatch) the job to create a new instance of a game server.
 
