@@ -39,7 +39,8 @@ job "minecraft" {
 				"${NOMAD_ALLOC_NAME}",
 				"traefik.enable=true",
 				"traefik.tcp.routers.TCP.service=minecraft-${NOMAD_ALLOC_ID}",
-				"traefik.tcp.services.minecraft-${NOMAD_ALLOC_ID}.loadbalancer.server.port=${NOMAD_PORT_minecraft}"
+				"traefik.tcp.services.minecraft-${NOMAD_ALLOC_ID}.loadbalancer.server.port=${NOMAD_PORT_minecraft}",
+				"urlprefix-:${NOMAD_PORT_minecraft};proto=tcp"
 			]
             port = "minecraft"
 

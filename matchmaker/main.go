@@ -142,7 +142,7 @@ func consulServiceByTag(tag string) (string, error) {
 	bytes, err := ioutil.ReadAll(resp.Body)
 	//fmt.Println(string(bytes))
 	err = json.Unmarshal(bytes, &services)
-	fmt.Println(services)
+	fmt.Printf("Services: %v", services)
 	return "", nil
 }
 
@@ -185,7 +185,7 @@ func requestGameServer(jobName string) {
 			if err != nil {
 				panic(err)
 			}
-			fmt.Println(service)
+			fmt.Printf("Service: %v", service)
 		}
 	} else {
 		fmt.Printf(
@@ -209,7 +209,7 @@ func requestGameServer(jobName string) {
 			if err != nil {
 				panic(err)
 			}
-			fmt.Println(service)
+			fmt.Printf("Service: %v", service)
 		}
 	}
 }

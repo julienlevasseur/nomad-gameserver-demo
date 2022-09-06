@@ -1,14 +1,15 @@
 job "traefik" {
 	datacenters = ["dc1"]
 
-	type = "service"
+	type = "system"
 
 	group "edge-routers" {
 
 		count = 1
 
 		task "docker" {
-		  driver = "docker"
+
+			driver = "docker"
 		
 			config {
 				image = "traefik"
