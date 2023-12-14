@@ -5,11 +5,12 @@ import (
 	"os"
 
 	"github.com/go-kit/kit/log"
+	"github.com/julienlevasseur/nomad-gameserver-demo/api"
 )
 
 type Service interface {
 	MakeHTTPHandler(logger log.Logger) http.Handler
-	MakeServerEndpoints() Endpoints
+	MakeServerEndpoints() api.Endpoints
 }
 
 type service struct{}
@@ -35,7 +36,7 @@ func main() {
 	var h http.Handler
 	//
 	//	{
-	h = s.MakeHTTPHandler(s, logger)
+	h = s.MakeHTTPHandler(logger)
 	//	}
 	//
 	// errs := make(chan error)

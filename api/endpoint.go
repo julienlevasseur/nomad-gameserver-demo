@@ -24,7 +24,7 @@ type Endpoints struct {
 // MakeServerEndpoints returns an Endpoints struct where each endpoint invokes
 // the corresponding method on the provided service. Useful in a profilesvc
 // server.
-func MakeServerEndpoints(s Service) Endpoints {
+func (s *Service) MakeServerEndpoints() Endpoints {
 	return Endpoints{
 		PostJobEndpoint:         MakePostJobEndpoint(s),
 		GetJobsEndpoint:         MakeGetJobsEndpoint(s),

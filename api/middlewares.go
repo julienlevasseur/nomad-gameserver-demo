@@ -47,14 +47,14 @@ func (mw loggingMiddleware) GetJob(ctx context.Context, id string) (job *nomad.J
 	return mw.next.GetJob(ctx, id)
 }
 
-func (mw loggingMiddleware) DeleteJob(ctx context.Context, j DispatchJob) (err error) {
+func (mw loggingMiddleware) DeleteJob(ctx context.Context, j nomad.DispatchJob) (err error) {
 	defer func(begin time.Time) {
 		mw.logger.Log("method", "DeleteJob", "id", j.JobID, "took", time.Since(begin), "err", err)
 	}(time.Now())
 	return mw.next.DeleteJob(ctx, j)
 }
 
-func (mw loggingMiddleware) PostJobDispatch(ctx context.Context, id string, j DispatchJob) (jdr *nomad.JobDispatchResponse, err error) {
+func (mw loggingMiddleware) PostJobDispatch(ctx context.Context, id string, j nomad.DispatchJob) (jdr *nomad.JobDispatchResponse, err error) {
 	defer func(begin time.Time) {
 		mw.logger.Log("method", "PostJobDispatch", "id", id, "took", time.Since(begin), "err", err)
 	}(time.Now())

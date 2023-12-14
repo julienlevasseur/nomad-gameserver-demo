@@ -28,9 +28,9 @@ var (
 
 // MakeHTTPHandler mounts all of the service endpoints into an http.Handler.
 // Useful in a profilesvc server.
-func MakeHTTPHandler(s Service, logger log.Logger) http.Handler {
+func (s *Service) MakeHTTPHandler(logger log.Logger) http.Handler {
 	r := mux.NewRouter()
-	e := MakeServerEndpoints(s)
+	e := s.MakeServerEndpoints()
 	options := []httptransport.ServerOption{
 		httptransport.ServerErrorHandler(transport.NewLogErrorHandler(logger)),
 		httptransport.ServerErrorEncoder(encodeError),
